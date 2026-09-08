@@ -2,11 +2,15 @@
 
 AutoStock is an academic systems-analysis project for an inventory platform that tracks stock levels and supports an automatic restocking workflow with suppliers.
 
-![AutoStock Figma overview](docs/figma-overview.png)
+![AutoStock portfolio UI revision](docs/ui-preview.png)
+
+<img src="docs/mobile-preview.png" alt="AutoStock mobile layout" width="320">
 
 ## Project status
 
-**Design and analysis prototype.** The reviewed files contain requirements, diagrams, and interface designs. They do not contain a working application, backend, database, authentication system, or supplier integration.
+**Original submission: design and analysis prototype.** The reviewed course files contain requirements, diagrams, and interface designs rather than an implemented system.
+
+**Portfolio revision: static interactive frontend.** A responsive HTML, CSS, and JavaScript dashboard was added during portfolio preparation. It uses sample electronics data and simulated interface actions. It is not connected to a backend, database, authentication system, or supplier.
 
 ## My contribution
 
@@ -28,6 +32,42 @@ Other report sections and diagrams were produced by the project team and are not
 - Supplier restocking requests.
 - Administrative access to manage inventory records.
 
+## Portfolio prototype features
+
+- Four separate responsive screens: Overview, Inventory, Restock Rules, and Suppliers.
+- Electronics-only sample catalog with search.
+- Sample inventory metrics, alert chart, activity feed, and restock queue.
+- Status filters for critical and low-stock items.
+- Simulated restock-request dialog with visible confirmation.
+
+### Additional screens
+
+| Electronics inventory | Restock rules | Suppliers |
+| --- | --- | --- |
+| ![AutoStock electronics inventory](docs/inventory-screen.png) | ![AutoStock restock rules](docs/restock-rules-screen.png) | ![AutoStock supplier directory](docs/suppliers-screen.png) |
+
+## Run locally
+
+Start a local server from the repository folder:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open <http://localhost:8000>.
+
+## Tests
+
+The repository includes a browser smoke test for all four navigation screens, electronics search, stock-status filtering, and the restock request flow:
+
+```bash
+npm install
+npx playwright install chromium
+npm test
+```
+
+The prepared version was also checked manually at desktop and mobile sizes on September 8, 2026.
+
 ## Artifacts
 
 ### Event table
@@ -44,15 +84,14 @@ Other report sections and diagrams were produced by the project team and are not
 
 ## How to use this repository
 
-There is no executable setup. Review the images in `docs/` to follow the proposed workflow and system scope.
+Open the portfolio prototype to filter sample stock states and try the simulated restock flow. Review the original images in `docs/` to compare the course artifacts with the later portfolio revision.
 
 ## Validation
 
-The portfolio copy was visually checked against the course report. Software tests were not run because no implementation was supplied.
+The original artifacts were visually checked against the course report. The portfolio frontend is tested separately as a static prototype; these checks do not validate a real inventory workflow.
 
 ## Known limitations
 
-- The system behavior is proposed rather than implemented.
+- The course system behavior is proposed rather than implemented; the added frontend only simulates selected interactions.
 - Performance targets, security controls, database behavior, and supplier communication were not tested.
 - The original `.fig` export is not included in the public-ready folder because its embedded metadata and third-party image provenance could not be fully verified. A public-safe Figma share link or clean frame export can be added later.
-

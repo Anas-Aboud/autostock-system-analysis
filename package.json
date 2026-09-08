@@ -1,0 +1,10 @@
+{
+  "name": "autostock-system-analysis",
+  "private": true,
+  "scripts": {
+    "test": "node tests/smoke-test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

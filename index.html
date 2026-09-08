@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interactive portfolio interface for the AutoStock inventory concept.">
+    <title>AutoStock — Inventory Overview</title>
+    <link rel="stylesheet" href="styles.css?v=6">
+    <script src="script.js?v=6" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="AutoStock home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="m4 7 8-4 8 4-8 4-8-4Z"></path><path d="m4 7 8 4 8-4v10l-8 4-8-4V7Z"></path><path d="M12 11v10"></path></svg>
+          </span>
+          <span>AutoStock</span>
+        </a>
+
+        <nav aria-label="Dashboard navigation">
+          <p class="nav-label">WORKSPACE</p>
+          <button class="nav-item active" type="button" data-screen="overview-screen" data-label="Overview">
+            <svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V20H4v-9.5Z"></path><path d="M9 20v-6h6v6"></path></svg> Overview
+          </button>
+          <button class="nav-item" type="button" data-screen="inventory-screen" data-label="Inventory">
+            <svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M4 10h16M10 4v16"></path></svg> Inventory
+          </button>
+          <button class="nav-item" type="button" data-screen="rules-screen" data-label="Restock rules">
+            <svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M19 8a7 7 0 1 0 0 8"></path><path d="M19 4v4h-4"></path><path d="M15 16h4v4"></path></svg> Restock rules
+          </button>
+          <button class="nav-item" type="button" data-screen="suppliers-screen" data-label="Suppliers">
+            <svg class="nav-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11"></path><path d="M9 20v-6h6v6"></path></svg> Suppliers
+          </button>
+        </nav>
+      </aside>
+
+      <main id="overview">
+        <header class="topbar">
+          <div>
+            <p class="breadcrumb">Workspace / <span id="current-section">Overview</span></p>
+            <h1 id="page-title">Inventory overview</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" type="button" aria-label="Notifications">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M7 10a5 5 0 0 1 10 0v3.5l1.6 2.5H5.4L7 13.5V10Z"></path><path d="M10 19h4"></path></svg><span class="notification-dot"></span>
+            </button>
+            <span class="avatar" aria-label="Administrator profile"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.7-4 3-6 6.5-6s5.8 2 6.5 6"></path></svg></span>
+          </div>
+        </header>
+
+        <section id="overview-screen" class="workspace-screen active" aria-label="Inventory overview">
+        <section class="metric-grid" aria-label="Sample inventory summary">
+          <article class="metric-card accent-purple">
+            <div class="metric-top"><span>Products tracked</span><span class="metric-icon">▦</span></div>
+            <strong>148</strong>
+            <p><span class="positive">+8</span> added this month</p>
+          </article>
+          <article class="metric-card accent-red">
+            <div class="metric-top"><span>Low-stock items</span><span class="metric-icon">!</span></div>
+            <strong>12</strong>
+            <p>4 require attention today</p>
+          </article>
+          <article class="metric-card accent-amber">
+            <div class="metric-top"><span>Pending orders</span><span class="metric-icon">↻</span></div>
+            <strong>6</strong>
+            <p>3 awaiting supplier response</p>
+          </article>
+          <article class="metric-card accent-green">
+            <div class="metric-top"><span>Stock availability</span><span class="metric-icon">✓</span></div>
+            <strong>94%</strong>
+            <p><span class="positive">+2.4%</span> from last week</p>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel alert-chart">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">LAST 7 DAYS</p>
+                <h2>Stock alerts</h2>
+              </div>
+              <span class="legend"><span></span> Alerts generated</span>
+            </div>
+            <div class="bar-chart" aria-label="Sample stock alerts: Monday 3, Tuesday 5, Wednesday 4, Thursday 8, Friday 6, Saturday 2, Sunday 4">
+              <div class="bar" style="--value: 34%"><span>Mon</span></div>
+              <div class="bar" style="--value: 56%"><span>Tue</span></div>
+              <div class="bar" style="--value: 45%"><span>Wed</span></div>
+              <div class="bar" style="--value: 88%"><span>Thu</span></div>
+              <div class="bar" style="--value: 67%"><span>Fri</span></div>
+              <div class="bar" style="--value: 23%"><span>Sat</span></div>
+              <div class="bar" style="--value: 45%"><span>Sun</span></div>
+            </div>
+          </article>
+
+          <article class="panel activity-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">LIVE FEED</p><h2>Recent activity</h2></div>
+            </div>
+            <ol class="activity-list">
+              <li><span class="activity-dot green"></span><div><strong>Stock received</strong><p>USB-C Cable · +40 units</p><time>12 min ago</time></div></li>
+              <li><span class="activity-dot amber"></span><div><strong>Restock requested</strong><p>Wireless Mouse · 42 units</p><time>48 min ago</time></div></li>
+              <li><span class="activity-dot purple"></span><div><strong>Threshold updated</strong><p>Laptop Charger · minimum 20</p><time>2 hr ago</time></div></li>
+            </ol>
+          </article>
+        </section>
+
+        <section class="panel inventory-panel">
+          <div class="inventory-heading">
+            <div>
+              <p class="eyebrow">ACTION REQUIRED</p>
+              <h2>Restock queue</h2>
+            </div>
+            <div class="filters" role="group" aria-label="Filter stock status">
+              <button type="button" class="filter active" data-filter="all">All items</button>
+              <button type="button" class="filter" data-filter="critical">Critical</button>
+              <button type="button" class="filter" data-filter="low">Low stock</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Item</th><th>Stock level</th><th>Status</th><th>Supplier</th><th><span class="sr-only">Action</span></th></tr></thead>
+              <tbody id="restock-table-body">
+                <tr data-status="critical"><td><span class="item-mark">UC</span><div><strong>USB-C Cable</strong><small>SKU-1048</small></div></td><td><div class="stock-meter"><span style="width: 12%"></span></div><small>6 / 50 units</small></td><td><span class="status critical">Critical</span></td><td>TechSource</td><td><button class="restock-button" type="button" data-item="USB-C Cable" data-quantity="44">Restock</button></td></tr>
+                <tr data-status="critical"><td><span class="item-mark">WM</span><div><strong>Wireless Mouse</strong><small>SKU-2031</small></div></td><td><div class="stock-meter"><span style="width: 16%"></span></div><small>8 / 50 units</small></td><td><span class="status critical">Critical</span></td><td>Digital Hub</td><td><button class="restock-button" type="button" data-item="Wireless Mouse" data-quantity="42">Restock</button></td></tr>
+                <tr data-status="low"><td><span class="item-mark">HA</span><div><strong>HDMI Adapter</strong><small>SKU-3110</small></div></td><td><div class="stock-meter low"><span style="width: 32%"></span></div><small>16 / 50 units</small></td><td><span class="status low">Low stock</span></td><td>Volt Supply</td><td><button class="restock-button" type="button" data-item="HDMI Adapter" data-quantity="34">Restock</button></td></tr>
+                <tr data-status="low"><td><span class="item-mark">LC</span><div><strong>Laptop Charger</strong><small>SKU-4012</small></div></td><td><div class="stock-meter low"><span style="width: 38%"></span></div><small>19 / 50 units</small></td><td><span class="status low">Low stock</span></td><td>Byte Market</td><td><button class="restock-button" type="button" data-item="Laptop Charger" data-quantity="31">Restock</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p id="action-message" class="action-message" aria-live="polite"></p>
+        </section>
+        </section>
+
+        <section id="inventory-screen" class="workspace-screen" aria-label="Electronics inventory">
+          <div class="screen-heading"><div><p class="eyebrow">6 ELECTRONIC PRODUCTS</p><h2>Product catalog</h2></div></div>
+          <section class="panel catalog-panel">
+            <div class="catalog-toolbar"><label class="catalog-search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Search electronics" aria-label="Search electronics"></label><span>6 products</span></div>
+            <div class="product-grid">
+              <article class="product-card"><span class="item-mark">UC</span><div><strong>USB-C Cable</strong><p>Cables & adapters</p></div><span class="stock-count">46 units</span></article>
+              <article class="product-card"><span class="item-mark">WM</span><div><strong>Wireless Mouse</strong><p>Computer accessories</p></div><span class="stock-count low-count">8 units</span></article>
+              <article class="product-card"><span class="item-mark">HA</span><div><strong>HDMI Adapter</strong><p>Cables & adapters</p></div><span class="stock-count low-count">16 units</span></article>
+              <article class="product-card"><span class="item-mark">LC</span><div><strong>Laptop Charger</strong><p>Power accessories</p></div><span class="stock-count low-count">19 units</span></article>
+              <article class="product-card"><span class="item-mark">BK</span><div><strong>Bluetooth Keyboard</strong><p>Computer accessories</p></div><span class="stock-count">37 units</span></article>
+              <article class="product-card"><span class="item-mark">SD</span><div><strong>Portable SSD</strong><p>Storage</p></div><span class="stock-count">28 units</span></article>
+            </div>
+          </section>
+        </section>
+
+        <section id="rules-screen" class="workspace-screen" aria-label="Restock rules">
+          <div class="screen-heading"><div><p class="eyebrow">AUTOMATION</p><h2>Automation settings</h2></div></div>
+          <div class="rule-grid">
+            <article class="panel rule-card"><div class="rule-top"><span class="rule-icon">01</span><span class="rule-state">Enabled</span></div><h3>Critical electronics</h3><p>Create a request when an electronic item falls below 10 units.</p><dl><div><dt>Supplier</dt><dd>Preferred supplier</dd></div><div><dt>Order quantity</dt><dd>Up to 50 units</dd></div></dl></article>
+            <article class="panel rule-card"><div class="rule-top"><span class="rule-icon">02</span><span class="rule-state">Enabled</span></div><h3>Cables and adapters</h3><p>Review USB-C and HDMI inventory when stock falls below 20 units.</p><dl><div><dt>Supplier</dt><dd>TechSource</dd></div><div><dt>Review cycle</dt><dd>Every morning</dd></div></dl></article>
+            <article class="panel rule-card"><div class="rule-top"><span class="rule-icon">03</span><span class="rule-state paused">Paused</span></div><h3>Computer accessories</h3><p>Monitor keyboards and mice before creating a consolidated request.</p><dl><div><dt>Supplier</dt><dd>Digital Hub</dd></div><div><dt>Order cycle</dt><dd>Weekly</dd></div></dl></article>
+          </div>
+        </section>
+
+        <section id="suppliers-screen" class="workspace-screen" aria-label="Electronics suppliers">
+          <div class="screen-heading"><div><p class="eyebrow">SUPPLY NETWORK</p><h2>Supplier directory</h2></div></div>
+          <section class="panel supplier-panel">
+            <div class="supplier-row supplier-head"><span>Supplier</span><span>Specialty</span><span>Open orders</span><span>Status</span></div>
+            <div class="supplier-row"><span><span class="supplier-icon">TS</span><strong>TechSource</strong></span><span>Cables and adapters</span><span>2 orders</span><span class="supplier-status">Active</span></div>
+            <div class="supplier-row"><span><span class="supplier-icon">DH</span><strong>Digital Hub</strong></span><span>Computer accessories</span><span>1 order</span><span class="supplier-status">Active</span></div>
+            <div class="supplier-row"><span><span class="supplier-icon">VS</span><strong>Volt Supply</strong></span><span>Power accessories</span><span>2 orders</span><span class="supplier-status">Active</span></div>
+            <div class="supplier-row"><span><span class="supplier-icon">BM</span><strong>Byte Market</strong></span><span>Storage and components</span><span>1 order</span><span class="supplier-status review">Review</span></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="restock-dialog">
+      <form method="dialog" id="restock-form">
+        <button class="dialog-close" value="cancel" aria-label="Close dialog">×</button>
+        <p class="eyebrow">CREATE REQUEST</p>
+        <h2>Restock <span id="dialog-item">item</span></h2>
+        <p class="dialog-copy">Review the quantity before creating this restock request.</p>
+        <label for="restock-quantity">Quantity</label>
+        <input id="restock-quantity" type="number" min="1" value="20" required>
+        <div class="dialog-actions">
+          <button class="cancel-button" value="cancel">Cancel</button>
+          <button class="confirm-button" id="confirm-restock" value="default">Create request</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
